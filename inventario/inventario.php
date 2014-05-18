@@ -1,15 +1,10 @@
-<?php
-include("../coneccion.php");
-include ("../inventario/actualizar.php");
+<?php 
+        include("../header.php");
+        include("../coneccion.php");
 ?>
 
-<html>
-    <head>
 
-
-    </head>
-    <body>
-        <form id="formInv" name="formInv">
+        
             <input type="button" id="btoComprar" name="btoComprar" value="Comprar">     
             <input type="button" id="btoMerma" name="btoMerma" value="Merma">
             <table>
@@ -27,29 +22,26 @@ include ("../inventario/actualizar.php");
                 $query = mysql_query($sql, $conexion);
 
                 while ($row = mysql_fetch_array($query)) {
-                    echo"<tr>";
-                    echo "<td> $row[ID_INSUMO] </td> ";
-                    echo "<td> $row[NOMBRE_INSUMO] </td> ";
-                    echo "<td> $row[CANTIDAD_INSUMOS] </td> ";
-                    echo "<td> <input type='text' id='txtCantidad' name='txtCantidad'>"
-                    . "     <input type='button' id='btoActualizar' name='btoActualizar' Value='Actualizar' onclick='sActualizar(," . $row[ID_INSUMO] . ")'> </td> ";
-                    echo "<td> <input type='button' id='btoEliminar' name='btoEliminar'> </td>   ";
-                    echo "</tr>";
-                }
-                ?>
 
+                ?>
+                <form method="post" id="formInv" name="formInv" action="actualizar.php">
+                    <tr>
+                    <td><?php echo $row['ID_INSUMO'];  ?> </td>
+                    <td><?php echo $row['NOMBRE_INSUMO'];  ?> </td> 
+                    <td><?php echo $row['CANTIDAD_INSUMOS'];  ?> </td> 
+                    <td> <input type='text' id='txtCantidad' name='txtCantidad'>
+                        <input type='hidden'  id="idInsumos" name="idInsumos" value="<?php echo $row['ID_INSUMO'];  ?>">
+                    <input type='submit' id='btoActualizar' name='btoActualizar' value='Actualizar'> </td> 
+                    
+                    </tr>
+                     </form>
+                
+  <?php   
+                }
+                mysql_close($conexion);
+
+            ?>
 
             </table>
-        </form>
+       
 
-        <script>
-            function  sActualizar(numero)
-            {
-                var actuaizar = document.formInv.
-
-            }
-        </script>
-
-    </body>
-
-</html>

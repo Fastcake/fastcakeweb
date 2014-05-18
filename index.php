@@ -6,27 +6,32 @@
         <section id="contenedor">
             Listado de productos
             <section class="categoria">
-                <div class="cat_nombre">
-                    nombre de categoria
-                </div>
+                
+            <?php    
+                $registros=mysql_query("select nombre_producto, descripcion_producto, precio_producto, tiempo_elaboracion_producto from producto",$conexion) or
+                die("Problemas en el select:".mysql_error());
+
+                while ($reg=mysql_fetch_array($registros))
+                {
+
+            ?>
                 <div class="cat_contenido">
                     <article class="producto">
                         <img src="imagenes/torta.png" alt="Foto torta">
-                        <h4>Torta de milhojas</h4>
+                        <h4><?php echo $reg['nombre_producto'] ?></h4>
                         <p class="descripcion">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                           <?php echo $reg['descripcion_producto'] ?>
                         </p>
-                        <span class="precio">$59.990.-</span>
-                        <div class="tiempoElavoracion">1 dia</div>
-                        <div class="tiempoEntrega">Lunes 20 de mayo.</div>
+                        <span class="precio">$<?php echo $reg['precio_producto'] ?></span>
+                        <div class="tiempoElavoracion"><?php echo $reg['tiempo_elaboracion_producto'] ?> dia</div>
                         <input type="button" name="Agregar al carro" value="agregar al carro">
                     </article>
                 </div>
+            <?php   
+                }
+                mysql_close($conexion);
+
+            ?> 
             </section>
 
         </section>

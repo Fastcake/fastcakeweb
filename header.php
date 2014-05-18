@@ -26,7 +26,7 @@
               <h1> Fastcake </h1>
         </header><!-- /header -->
         <nav>
-            <ul>    <li><a href="productosAdmin" title="Agregar productos">Agregar productos</a></li>
+            <ul>    <li><a href="productos.php" title="Agregar productos">Agregar productos</a></li>
                     <li><a href="#" title="productos">Productos</a></li>
                     <li><a href="#" title="Crea tu torta">Crea tu torta</a></li>
             </ul>

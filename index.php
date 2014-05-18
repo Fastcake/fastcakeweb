@@ -8,22 +8,22 @@
             <section class="categoria">
                 
             <?php    
-                $registros=mysql_query("select nombre_producto, descripcion_producto, precio_producto, tiempo_elaboracion_producto from producto",$conexion) or
+                $registros=mysql_query("select id_producto, nombre_producto, descripcion_producto, precio_producto, tiempo_elaboracion_producto from producto order by precio_producto asc",$conexion) or
                 die("Problemas en el select:".mysql_error());
 
                 while ($reg=mysql_fetch_array($registros))
                 {
 
             ?>
-                <div class="cat_contenido">
+                <div class="cat_contenido" id="<?php echo $reg['id_producto'] ?>">
                     <article class="producto">
-                        <img src="imagenes/torta.png" alt="Foto torta">
+                        <img class="foto" src="img/torta.jpg" alt="Foto torta">
                         <h4><?php echo $reg['nombre_producto'] ?></h4>
                         <p class="descripcion">
                            <?php echo $reg['descripcion_producto'] ?>
                         </p>
                         <span class="precio">$<?php echo $reg['precio_producto'] ?></span>
-                        <div class="tiempoElavoracion"><?php echo $reg['tiempo_elaboracion_producto'] ?> dia</div>
+                        <div class="tiempoElavoracion"><?php echo $reg['tiempo_elaboracion_producto'] ?> dias</div>
                         <input type="button" name="Agregar al carro" value="agregar al carro">
                     </article>
                 </div>

@@ -1,0 +1,26 @@
+.cat_contenido{
+	display: inline-block; 
+	width: 30%; 
+	border:  1px #000 solid;
+	height: 300px;
+	vertical-align: top;
+	margin: 1px;
+	padding: 5px;
+}
+
+.foto{
+	width: 150px;
+	height: 150px;
+	border: 1px solid #000;
+}
+
+.producto h4{
+	width: 150px;
+	display: inline-block;
+}
+
+.descripcion{
+	border: 1px solid #000;
+	height: 3em;
+	margin: 0px;
+}

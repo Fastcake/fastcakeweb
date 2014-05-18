@@ -27,7 +27,7 @@
         </header><!-- /header -->
         <nav>
             <ul>    <li><a href="productos.php" title="Agregar productos">Agregar productos</a></li>
-                    <li><a href="#" title="productos">Productos</a></li>
+                    <li><a href="index.php" title="productos">Productos</a></li>
                     <li><a href="#" title="Crea tu torta">Crea tu torta</a></li>
             </ul>
         </nav>

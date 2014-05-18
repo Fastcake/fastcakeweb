@@ -9,6 +9,7 @@
 					while ($reg=mysql_fetch_array($te))
                 {
          			echo $reg['p1'];
+         			$p2 = $reg['p1'];
          			echo "<br/>";
 
      			}
@@ -21,12 +22,17 @@ limit 1;", $conexion) or die("Problemas en el select:".mysql_error());
      	while ($reg=mysql_fetch_array($fmp))
                 {
          			echo $reg['ola'];
+         			$p3 = $reg['ola'];
 
      			}
-
-
-     		$suma = $te + $fmp;
+     		echo "<br/>";	
+     		echo  $p2;
+     			
+     		$suma = $p2 + "0-0-0 ".$p3.":0:0";
 
      		echo "<br/>";
      		echo $suma;
+
+     		
  ?>
+

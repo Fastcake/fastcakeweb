@@ -4,9 +4,7 @@
 ?>
 
 
-        
-            <input type="button" id="btoComprar" name="btoComprar" value="Comprar">     
-            <input type="button" id="btoMerma" name="btoMerma" value="Merma">
+            
             <table>
                 <tr>
                     <td>Cod Producto</td>

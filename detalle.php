@@ -9,7 +9,20 @@
             <?php    
 
             		$id=$_GET['id'];
-                $registros=mysql_query("select id_producto, nombre_producto, descripcion_producto, precio_producto, tiempo_elaboracion_producto from producto where id_producto = $id",$conexion) or
+		            $registros=mysql_query("select p.id_producto, 
+		            					p.nombre_producto, 
+						            	p.descripcion_producto, 
+						            	p.precio_producto, 
+						            	p.tiempo_elaboracion_producto,
+										s.NOMBRE_INSUMO
+										FROM
+										producto p,
+										receta r,
+										insumo s
+										WHERE
+										p.id_producto = $id
+										and p.ID_PRODUCTO=r.ID_PRODUCTO
+										and r.ID_INSUMO = s.ID_INSUMO",$conexion) or
                 die("Problemas en el select:".mysql_error());
 
                 while ($reg=mysql_fetch_array($registros))
